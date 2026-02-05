@@ -28,13 +28,14 @@ Minimum requirements:
 
 ## Implementation Status
 
+See individual track READMEs for detailed instructions and proof of success/failure handling.
+
 | Track | Protocol | Screenshots | Status |
 |-------|----------|-------------|--------|
 | `python-http/` | HTTP + JSON | Provided | Complete |
 | `go-http/` | HTTP + JSON | Provided | Complete |
 | `python-grpc/` | gRPC + Protobuf | Provided | Initial attempt |
 
-See individual track READMEs for detailed instructions and proof of success/failure handling.
-Following is short paragraph addressing "What makes this distributed":
+**Following is short paragraph addressing "What makes this distributed":**
 This system is distributed because it consists of **two independent processes** that communicate over the network via HTTP. Each service runs in its own process, has its own memory space, and can fail independently. Service A and Service B don't share state directly—they exchange data through network requests. This demonstrates key distributed system properties: **network communication** (HTTP requests between services), **independent failure** (Service A can crash without taking down Service B), and **loose coupling** (services only know each other's API contracts, not internal implementation). When Service A fails, Service B gracefully handles the error and returns a meaningful response (503) rather than crashing itself, showing fault tolerance at the application level.
 
