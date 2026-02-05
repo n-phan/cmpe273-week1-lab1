@@ -39,13 +39,15 @@ $ curl "http://127.0.0.1:8081/call-echo?msg=hello"
 
 **Service A Log:**
 ```
-2026/02/04 09:51:57 service=A endpoint=/echo status=ok latency_ms=0
+2026/02/04 21:20:40 service=A endpoint=/echo status=ok latency_ms=0
 ```
 
 **Service B Log:**
 ```
-2026/02/04 09:51:57 service=B endpoint=/call-echo status=ok latency_ms=5
+2026/02/04 21:20:40 service=B endpoint=/call-echo status=ok latency_ms=1
 ```
+**Success Screenshot:**
+<img width="1504" height="424" alt="image" src="https://github.com/user-attachments/assets/5d87c089-350d-449e-bd1e-fae78f55a97a" />
 
 ## Failure Proof (Independent Failure)
 
@@ -60,8 +62,11 @@ $ curl "http://127.0.0.1:8081/call-echo?msg=hello"
 
 **Service B Log:**
 ```
-service=B endpoint=/call-echo status=error error="dial tcp 127.0.0.1:8080: connect: connection refused" latency_ms=1
+2026/02/04 21:22:17 service=B endpoint=/call-echo status=error error="Get \"http://127.0.0.1:8080/echo?msg=hello\": dial tcp 127.0.0.1:8080: connect: connection refused" latency_ms=0
 ```
+
+**Failure Screenshot:**
+<img width="2150" height="434" alt="image" src="https://github.com/user-attachments/assets/7c6cf7a9-8b33-4972-9c43-3cf946210f89" />
 
 ## What Makes This Distributed?
 
