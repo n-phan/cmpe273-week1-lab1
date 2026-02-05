@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package echo;
+
+// Health check service
+service HealthService {
+  rpc Check (HealthRequest) returns (HealthResponse);
+}
+
+message HealthRequest {}
+
+message HealthResponse {
+  string status = 1;
+}
+
+// Echo service (Service A)
+service EchoService {
+  rpc Echo (EchoRequest) returns (EchoResponse);
+}
+
+message EchoRequest {
+  string msg = 1;
+}
+
+message EchoResponse {
+  string echo = 1;
+}
+
+// CallEcho service (Service B)
+service CallEchoService {
+  rpc CallEcho (CallEchoRequest) returns (CallEchoResponse);
+}
+
+message CallEchoRequest {
+  string msg = 1;
+}
+
+message CallEchoResponse {
+  string service_b = 1;
+  string service_a_echo = 2;      // populated on success
+  string service_a_status = 3;    // "ok" or "unavailable"
+  string error = 4;               // populated on failure
+}
