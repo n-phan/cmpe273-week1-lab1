@@ -89,6 +89,10 @@ $ python test_client.py call-echo hello
 2026-02-04 10:00:00,000 service=B endpoint=/call-echo status=ok latency_ms=5
 ```
 
+**Success Screenshot:**
+
+<img width="1278" height="724" alt="image" src="https://github.com/user-attachments/assets/a688b90a-d8a8-4796-8fcc-49c24ad01fc4" />
+
 ## Failure Proof (Independent Failure)
 
 When Service A is stopped (Ctrl+C) and Service B is still running:
@@ -104,6 +108,10 @@ $ python test_client.py call-echo hello
 ```
 service=B endpoint=/call-echo status=error error="StatusCode.UNAVAILABLE: failed to connect..." latency_ms=1
 ```
+
+**Failure Screenshots:**
+
+<img width="2142" height="748" alt="image" src="https://github.com/user-attachments/assets/938bafb3-5124-4db7-acb5-c73687c8e524" />
 
 ## Key Differences from HTTP Track
 
